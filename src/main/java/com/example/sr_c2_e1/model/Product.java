@@ -1,21 +1,20 @@
-package com.example.sr_c1_e1.model;
+package com.example.sr_c2_e1.model;
 
 import org.springframework.data.annotation.Id;
 
 public class Product {
 
   @Id
-  private int id;
+  private Integer id;
   private String name;
 
-  public int getId() {
+  public Integer getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Integer id) {
     this.id = id;
   }
-
   public String getName() {
     return name;
   }

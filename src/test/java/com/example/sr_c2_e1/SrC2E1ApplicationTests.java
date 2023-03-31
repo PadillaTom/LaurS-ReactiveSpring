@@ -1,10 +1,10 @@
-package com.example.sr_c1_e1;
+package com.example.sr_c2_e1;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SrC1E1ApplicationTests {
+class SrC2E1ApplicationTests {
 
   @Test
   void contextLoads() {
