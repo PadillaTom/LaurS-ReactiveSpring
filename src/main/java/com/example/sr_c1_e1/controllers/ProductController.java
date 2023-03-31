@@ -16,6 +16,17 @@ public class ProductController {
     this.productService = productService;
   }
 
+  /**
+   * They are not called Endpoints anymore. This is not a REST Service.
+   * We must specify that we will work with STREAMS
+   * to prevent returning everything at the end. (Like a normal endpoint)
+   *
+   * This is "the point for a client to connect and get a succession of events."
+   * Specify it produces an EVENT_STREAM
+   *
+   *
+   * @return
+   */
   @GetMapping(value = "/product", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
   public Flux<Product> getProduct() {
     return productService.getProducts();

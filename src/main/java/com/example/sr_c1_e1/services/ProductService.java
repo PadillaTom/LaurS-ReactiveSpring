@@ -16,8 +16,19 @@ public class ProductService {
     this.productRepository = productRepository;
   }
 
-  public Flux<Product> getProducts() { // whole method takes 10 seconds to execute
-    return productRepository.findAll() // 2 products
-        .delayElements(Duration.ofSeconds(5)); // for any element add a sleep duration
+  /**
+   * Flux is a pipeline of created events (Product is the event).
+   * Reactive Repository: Will return Flux or Mono (Publisher: Creates events).
+   *                      It will return one element after the other instead of waiting to fetch
+   *                      the entire collection of elements in DB.
+   * CRUD Repository: It returns a Collection of elements. It waits to fetch all before returning.
+   *
+   * @return
+   */
+  public Flux<Product> getProducts() {
+    return productRepository.findAll()
+        .delayElements(Duration.ofSeconds(5))   // Added to showcase the Fetch of elements one by one
+            .log();                             // Added to show Logs
   }
+
 }
